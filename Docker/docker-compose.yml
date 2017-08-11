@@ -1,0 +1,28 @@
+version: '2'  
+services:  
+  nginx1:
+    image: nginx:latest
+    container_name: nz02
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../CorporateSignUp:/src
+      - ./nginx:/etc/nginx/conf.d
+      - ../CorporateSignUp/frontend:/Frontend
+    depends_on:
+      - web1
+  web1:
+    build: .
+    container_name: dz02
+    command: bash -c 'python manage.py runserver 0.0.0.0:8000'
+    depends_on:
+      - db1
+    volumes:
+      - .../CorporateSignUp:/src
+      - ./CorporateSignUp/frontend:/Frontend
+    expose:
+      - "8000"
+
+  db1:
+    image: postgres:latest
+    container_name: pz02

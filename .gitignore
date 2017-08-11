@@ -1,0 +1,6 @@
+.env
+.vscode
+*.pyc
+**.pyc
+CorporateSignUp/CorporateSignUp/local_settings.py
+*/__pycache__/
