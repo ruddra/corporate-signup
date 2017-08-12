@@ -8,7 +8,7 @@ services:
     volumes:
       - ../CorporateSignUp:/src
       - ./nginx:/etc/nginx/conf.d
-      - ../CorporateSignUp/frontend:/Frontend
+      - /static:/Frontend
     depends_on:
       - web1
   web1:
@@ -18,8 +18,8 @@ services:
     depends_on:
       - db1
     volumes:
-      - .../CorporateSignUp:/src
-      - ./CorporateSignUp/frontend:/Frontend
+      - ../CorporateSignUp:/src
+      - /static:/Frontend
     expose:
       - "8000"
 

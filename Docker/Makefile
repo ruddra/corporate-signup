@@ -20,13 +20,13 @@ shell-db:
 	docker exec -ti pz02 bash
 
 log-nginx:
-	docker-compose logs nginx  
+	docker-compose logs nginx1 
 
 log-web:
-	docker-compose logs web  
+	docker-compose logs web1 
 
 log-db:
-	docker-compose logs db 
+	docker-compose logs db1
 
 collectstatic:
 	docker exec dz02 /bin/sh -c "python manage.py collectstatic --noinput"
