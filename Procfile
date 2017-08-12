@@ -1,1 +1,1 @@
-web: gunicorn CorporateSignUp.wsgi
+web: gunicorn CorporateSignUp.wsgi --log-file -

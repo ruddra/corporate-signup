@@ -5,3 +5,4 @@ whitenoise==3.2.2
 django_countries
 psycopg2==2.6.2
 django-formtools==2.0
+gunicorn==19.6.0
