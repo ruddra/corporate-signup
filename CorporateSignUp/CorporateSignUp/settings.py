@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'uybazljn(8p_cozzm=!8dvz105gpf*zv_c7q-r)^dh$v!1#u8j'
+SECRET_KEY = '887y4*jx4luaz#%y)cw37xj_d6c4xe28=7+*cc*sl0ck!f1h=a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,25 +30,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-DJANGO_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core.apps.CoreConfig',
+    'companies.apps.CompaniesConfig',
+    'profiles.apps.ProfilesConfig',
+    'users.apps.UsersConfig',
 ]
-
-LIBRARY_APPS = []  # For now None
-
-LOCAL_APPS = [
-    'auth.apps.Auth',
-    'company.apps.Company',
-    'core.apps.Core',
-    'user_profile.apps.UserProfile'
-]
-
-INSTALLED_APPS = DJANGO_APPS + LIBRARY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,7 +124,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+AUTH_USER_MODEL = 'users.User'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "../static"),
+    '/var/www/static/',
+]
+
+MEDIA_ROOT = '../media'
+
+MEDIA_URL = '/media/'
+
 try:
     from .local_settings import *
+
 except ImportError:
-    print("No Local Settings provided")
+    print("No local settings provided")

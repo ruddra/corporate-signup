@@ -1,7 +1,10 @@
 from __future__ import unicode_literals
 
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
+
+from core.models import CoreModel
 
 
 class UserManager(BaseUserManager):
@@ -47,7 +50,7 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class User(AbstractBaseUser, models.Model):
+class User(AbstractBaseUser, CoreModel):
     """
     User Model
     """
@@ -60,13 +63,13 @@ class User(AbstractBaseUser, models.Model):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     first_name = models.CharField(
-        verbose_name="First Name",
+        verbose_name=_("First Name"),
         max_length=14,
         null=True,
         default=None
     )
     last_name = models.CharField(
-        verbose_name="Last Name",
+        verbose_name=_("Last Name"),
         max_length=14,
         null=True,
         default=None
@@ -93,3 +96,8 @@ class User(AbstractBaseUser, models.Model):
     def has_module_perms(self, app_label):
         # Simplest possible answer: Yes, always
         return True
+
+    class Meta:
+        app_label = 'users'
+        verbose_name = _('User')
+        verbose_name_plural = _('Users')

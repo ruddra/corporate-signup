@@ -2,10 +2,12 @@
 User Profile Model
 """
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
-from auth.models import User
-from user_profile.models import BillingAddress
-from company.models import Company
+from users.models import User
+from companies.models import Company
+
+from .billing_address import BillingAddress
 
 
 class Profile(models.Model):
@@ -18,12 +20,25 @@ class Profile(models.Model):
        drag and drop
     """
     user = models.OneToOneField(User)
-    company = models.ForeignKey(Company)
+    company = models.ForeignKey(
+        Company,
+        null=True,
+        default=None,
+        related_name='company_profiles',
+        blank=True  # For avoiding adminsite validation issue
+    )
     billing_address = models.ForeignKey(
         BillingAddress,
         null=True,
-        default=None
+        default=None,
+        related_name="address_profiles",
+        blank=True  # same as above
     )
 
     def __str__(self):
         return "User: {}, Company: {}".format(self.user, self.company)
+
+    class Meta:
+        app_label = 'profiles'
+        verbose_name = _('Profile')
+        verbose_name_plural = _('Profiles')
