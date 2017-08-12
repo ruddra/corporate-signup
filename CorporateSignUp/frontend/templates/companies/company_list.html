@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Corporate Subscription Signup</h1>
+        <p class="lead text-muted">Sign Up to get the latest deals...</p>
+    </div>
+</section>
+<br/>
+<div class="card-group">
+    {% for company in object_list %}
+    <div class="card">
+        <img class="card-img-top" src="{{company.logo.url}}" alt="Card image cap">
+        <div class="card-block">
+            <h4 class="card-title"><a href="{% url 'company-details' pk=company.id %}">{{company.name}}</a></h4>
+            <p class="card-text">{{company.short_description}}</p>
+            <p class="card-text"><small class="text-muted">Last Updated: {{company.last_updated |date:'Y-m-d H:i'}}</small></p>
+        </div>
+    </div>
+    {% empty %}
+    <li>No Company found.</li>
+    {% endfor %}{% if is_paginated %} {% endif %}
+</div>
+<div class="container pagination bottom">
+    <span class="page-links center-text pull-right">
+                {% if page_obj.has_previous %}
+                    <a href="/?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span> {% if page_obj.has_next %}
+    <a href="/?page={{ page_obj.next_page_number }}">next</a> {% endif %}
+    </span>
+</div> {% endblock %}

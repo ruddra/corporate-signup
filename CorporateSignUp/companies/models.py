@@ -14,12 +14,19 @@ class Company(CoreModel):
     Company Model Class
     """
     name = models.CharField(
-        verbose_name=_("Company"),
+        verbose_name=_("Company Name"),
         max_length=255
     )
     logo = models.FileField(
         verbose_name=_("Company Logo"),
         upload_to=CompanyService().get_file_path
+    )
+    short_description = models.CharField(
+        verbose_name=_("Short Description"),
+        help_text=_("Short Description"),
+        max_length=800,
+        null=True,
+        default=None
     )
     description = models.TextField()
     company_type = models.IntegerField(
@@ -27,6 +34,18 @@ class Company(CoreModel):
         help_text=_("Please choose from Business entities for this company"),
         choices=CompanyType.choices,
         default=CompanyType.PUBLIC
+    )
+    is_active = models.BooleanField(
+        default=True,
+        help_text=_("Is active for subscriptions")
+    )
+    domain = models.CharField(
+        _("Domain Address"),
+        help_text="Will be used for validation purpose. "
+        "If not provided, then validation will be avoided",
+        max_length=255,
+        null=True,
+        default=None
     )
 
     def __str__(self):

@@ -1,0 +1,70 @@
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'icon/favicon.ico'%}">
+
+    <title>Corporate Subscription Signup</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/overwrite.css'%}">
+    <link rel="stylesheet" href="{% static 'css/album.css'%}">
+
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar navbar-inverse bg-inverse">
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand">Corporate Subscription Signup</a>
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <div class="album text-muted">
+        <div class="container">
+
+            {% block content %} {% endblock %}
+
+        </div>
+    </div>
+
+    <footer class="text-muted">
+        <hr/>
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>Copyright Arnab Kumar Shil</p>
+            <p>Contact me via email at <a href="mailto:me@ruddra.com">me@ruddra.com</a> or visit my website <a href="http://ruddra.com">ruddra.com</a>.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/holder.min.js' %}"></script>
+    <script type="application/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+        });
+    </script>
+</body>
+
+</html>

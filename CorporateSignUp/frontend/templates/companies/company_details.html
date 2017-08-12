@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <img src="{{object.logo.url}}" height=100>
+        <h1 class="jumbotron-heading">{{object.name}}</h1>
+        <p class="lead text-muted">{{object.short_description}}</p>
+    </div>
+</section>
+<br/>
+<div class="container">
+    {{object.description}}
+</div>
+<br/>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4">
+            <a href="{% url 'main' %}" class="btn btn-primary pull-left margin-left-10" role="button">Go Back</a>
+        </div>
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <a href="{% url 'sign-up' company_id=object.id %}" class="btn btn-primary pull-right margin-right-10" role="button">Subscribe</a>
+                </div>
+                <div class="col-md-8 col-md-pull-4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
