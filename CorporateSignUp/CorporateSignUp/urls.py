@@ -19,9 +19,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.utils.translation import ugettext_lazy as _
 
+from companies.views import CompanyListView, CompanyDetailsView
+from users.views import UserSignUpView, ConfirmView, \
+    BillingAddressView, ConfirmVerifyView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^sign-up/(?P<company_id>[0-9]+)/',
+        UserSignUpView.as_view(), name="sign-up"),
+    url(r'^company-details/(?P<pk>[0-9]+)/',
+        CompanyDetailsView.as_view(), name="company-details"),
+    url(r'^confirm/', ConfirmVerifyView.as_view(), name='confirm'),
+    url(r'^thank-you/', ConfirmView.as_view(), name='thank-you'),
+    url(r'^billing-address/', BillingAddressView.as_view(),
+        name='billing-address'),
+    url(r'^$', CompanyListView.as_view(), name='main'),
 ]
 
 if settings.DEBUG:

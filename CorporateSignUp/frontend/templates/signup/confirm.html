@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% load i18n %} {% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1 class="vcenter text-center">Please Confirm your Information</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row marketing">
+
+        <div class="col-lg-6">
+            <h3>Company Information</h3>
+
+            <h4>Name</h4>
+            <p>{{company.name}}</p>
+            <h4>Logo</h4>
+            <img height="200" src="{{company.logo.url}}">
+
+        </div>
+        <div class="col-lg-6">
+            <h3>Personal Information</h3>
+
+            <h4>First Name</h4>
+            <p>{{form_0_data.first_name}}</p>
+            <h4>Last Name</h4>
+            <p>{{form_0_data.first_name}}</p>
+            <h4>Email Address</h4>
+            <p>{{form_0_data.email}}</p>
+
+            <h3>Billing Information</h3>
+
+            <h4>Address</h4>
+            <p>{{form_1_data.address}}</p>
+
+            <h4>City</h4>
+            <p>{{form_1_data.current_city}}</p>
+
+            <h4>County(Short Code)</h4>
+            <p>{{form_1_data.country}}</p>
+        </div>
+    </div>
+</div>
+<br/>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <a href="{% url 'billing-address' %}" class="btn btn-primary pull-left margin-left-10" role="button">Go To Billing Address</a>
+        </div>
+        <div class="col-xs-7">
+            <div class="row">
+                <div class="col-md-4 col-md-push-8">
+                    <a href="{% url 'thank-you' %}" class="btn btn-primary pull-right margin-right-10" role="button">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% load i18n %} {% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1 class="vcenter text-center">Thank You For Registration</h1>
+    </div>
+</div>
+<div class="container">
+    <br>
+    <p>“Thank you for signing up. Visit www.upstreamonline.com to get the latest news”</p>
+</div>
+<br>
+<div class="container bottom">
+    <div class="row">
+        <div class="col-xs-4">
+        </div>
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-md-3 col-md-push-8">
+                </div>
+                <div class="col-md-7 col-md-pull-4">
+                    <a href="{% url 'main'%}" class="btn btn-primary pull-left margin-left-10" role="button">Go To Front Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
