@@ -11,7 +11,7 @@ from profiles.services import ProfileService
 
 
 class CompanyFilter(admin.SimpleListFilter):
-    title = _("Filter Companies")
+    title = _("Company Types")
     parameter_name = 'company_type'
 
     def queryset(self, request, queryset):
