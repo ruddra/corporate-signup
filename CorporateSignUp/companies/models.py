@@ -39,14 +39,6 @@ class Company(CoreModel):
         default=True,
         help_text=_("Is active for subscriptions")
     )
-    domain = models.CharField(
-        _("Domain Address"),
-        help_text="Will be used for validation purpose. "
-        "If not provided, then validation will be avoided",
-        max_length=255,
-        null=True,
-        default=None
-    )
 
     def __str__(self):
         return self.name
