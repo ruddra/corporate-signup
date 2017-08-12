@@ -127,9 +127,11 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.User'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "../static"),
-    '/var/www/static/',
+    os.path.join(BASE_DIR, "frontend/static"),
+    '/Frontend/',
 ]
+
+STATIC_ROOT = '../static'
 
 MEDIA_ROOT = '../media'
 
