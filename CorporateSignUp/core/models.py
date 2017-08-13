@@ -9,8 +9,8 @@ class CoreModel(models.Model):
     Core Model Structure. Contains Common Information, such
     as date Created and Last Updated
     """
-    date_created = models.DateTimeField(auto_now=True)
-    last_updated = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+    last_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         abstract = True
