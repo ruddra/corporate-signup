@@ -7,3 +7,5 @@ To deploy this project using docker, go to Docker Folder then:
     4. To stop `make stop`
     5. To restart `make restart`
     6. To collect static `make collectstatic`
+### Live Demo
+This project is running in: https://corporate-signup.herokuapp.com
